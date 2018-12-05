@@ -10,6 +10,7 @@ public class Cell {
 
     public Cell(boolean alive, String coordinates,int gridSize) {
         this.alive = alive;
+        this.neighbors= new ArrayList<>();
         this.instantiateNeighbors(coordinates, gridSize);
     }
 
@@ -17,7 +18,6 @@ public class Cell {
         String[] coordinateSplit = coordinates.split("-");
         Integer row = Integer.parseInt(coordinateSplit[0]);
         Integer column = Integer.parseInt(coordinateSplit[1]);
-        List<String> neighbors = new ArrayList<String>();
         if(row > 0){
             neighbors.add((row-1) + "-" + column);
             if(column > 0){
@@ -53,11 +53,11 @@ public class Cell {
         }
     }
 
-    public boolean getAlive() {
+    public boolean isAlive() {
         return alive;
     }
 
-    public Array getNeighbors() {
+    public List<String> getNeighbors() {
         return neighbors;
     }
 }
