@@ -44,4 +44,20 @@ public class Cell {
         }
         return neighbors;
     }
+
+    public void toggleAlive() {
+        if (alive = true) {
+            alive = false;
+        } else {
+            alive = true;
+        }
+    }
+
+    public boolean getAlive() {
+        return alive;
+    }
+
+    public Array getNeighbors() {
+        return neighbors;
+    }
 }
