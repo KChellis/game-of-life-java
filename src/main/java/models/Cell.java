@@ -14,4 +14,20 @@ public class Cell {
     private Array instantiateNeighbors(String coordinates) {
 
     }
+
+    public void toggleAlive() {
+        if (alive = true) {
+            alive = false;
+        } else {
+            alive = true;
+        }
+    }
+
+    public boolean getAlive() {
+        return alive;
+    }
+
+    public Array getNeighbors() {
+        return neighbors;
+    }
 }
