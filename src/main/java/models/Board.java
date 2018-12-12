@@ -51,7 +51,7 @@ public class Board {
             System.out.println(cellsOnBoard.get(key).isAlive());
         }
     }
-
+  
     public void printStateOfBoard() {
         Set<String> allKeys = cellsOnBoard.keySet();
         int rowCounter = 0;
@@ -69,5 +69,8 @@ public class Board {
                 printRow = "";
             }
         }
+
+    public HashMap<String, Cell> getCellsOnBoard() {
+        return cellsOnBoard;
     }
 }
