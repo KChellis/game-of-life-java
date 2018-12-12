@@ -51,4 +51,23 @@ public class Board {
             System.out.println(cellsOnBoard.get(key).isAlive());
         }
     }
+
+    public void printStateOfBoard() {
+        Set<String> allKeys = cellsOnBoard.keySet();
+        int rowCounter = 0;
+        String printRow = "";
+        for (String key: allKeys) {
+            if (cellsOnBoard.get(key).isAlive()) {
+                printRow = printRow + "O ";
+            } else {
+                printRow = printRow + "X ";
+            }
+            rowCounter ++;
+            if (rowCounter == boardSize) {
+                System.out.println(printRow);
+                rowCounter = 0;
+                printRow = "";
+            }
+        }
+    }
 }
