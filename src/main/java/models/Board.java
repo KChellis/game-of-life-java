@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.HashMap;
+import java.util.Set;
+
 import models.Cell;
 
 public class Board {
@@ -46,21 +48,22 @@ public class Board {
         for (int z = 0; z < boardSize; z++) {
             for (int a = 0; a < boardSize; a++) {
                 String cellKey = z + "-" + a;
-                Cell newCell = new Cell(true, cellKey, boardSize);
+                Boolean alive = false;
+                int randomAlive = (int) (Math.random() * 10);
+                if (randomAlive < 2) {
+                    alive = true;
+                }
+                Cell newCell = new Cell(alive, cellKey, boardSize);
                 cellsOnBoard.put(cellKey, newCell);
             }
         }
-        this.printCellsOnBoard();
+        this.printCellsOnBoardValues();
     }
 
-    private void printCellsOnBoard() {
-        for (int z = 0; z < cellsOnBoard.size(); z++) {
-        }
-        for (int z = 0; z < boardSize; z++) {
-            for (int a = 0; a < boardSize; a++) {
-                String cellKey = z + "-" + a;
-                System.out.println(cellsOnBoard.get(cellKey));
-            }
+    private void printCellsOnBoardValues() {
+        Set<String> allKeys = cellsOnBoard.keySet();
+        for (String key : allKeys) {
+            System.out.println(cellsOnBoard.get(key));
         }
     }
 }
