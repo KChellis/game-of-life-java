@@ -20,6 +20,7 @@ public class App {
         }
         gameBoard = new Board(boardSize);
         gameBoard.printBoard();
+        gameBoard.printStateOfBoard();
     }
 
 
