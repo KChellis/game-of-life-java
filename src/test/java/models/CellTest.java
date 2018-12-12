@@ -3,6 +3,7 @@ package models;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -55,5 +56,10 @@ public class CellTest {
 
     @Test
     public void countLivingNeighbors() {
+        Board testBoard = new Board(3);
+        HashMap<String, Cell> boardCells = testBoard.getCellsOnBoard();
+        Cell testCell = boardCells.get("1-1");
+        int count = testCell.countLivingNeighbors(boardCells);
+        assertEquals(8, count);
     }
 }

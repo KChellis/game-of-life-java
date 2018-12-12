@@ -2,6 +2,7 @@ package models;
 
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -62,7 +63,7 @@ public class Cell {
         return neighbors;
     }
 
-    public Integer countLivingNeighbors(Map<String,Cell> board) {
+    public Integer countLivingNeighbors(HashMap<String, Cell> board) {
         Integer count = 0;
         for( String neighbor : neighbors){
             if(board.get(neighbor).isAlive()){
