@@ -7,7 +7,18 @@ import java.io.InputStreamReader;
 
 public class App {
     public static void main(String[] args) {
-        Board gameBoard = new Board();
+        int boardSize = 0;
+        Board gameBoard;
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        try {
+            System.out.println("Welcome to the Game of Life!");
+            System.out.println("Please enter the size for your board (1-10): ");
+            boardSize = Integer.parseInt(bufferedReader.readLine());
+            System.out.println("Your board size is " + boardSize + " columns by " + boardSize + " rows.");
+        } catch(IOException e) {
+            e.printStackTrace();
+        }
+        gameBoard = new Board(boardSize);
         gameBoard.printBoard();
     }
 
