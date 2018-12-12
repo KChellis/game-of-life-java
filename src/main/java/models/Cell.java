@@ -47,7 +47,7 @@ public class Cell {
     }
 
     public void toggleAlive() {
-        if (alive = true) {
+        if (alive) {
             alive = false;
         } else {
             alive = true;
