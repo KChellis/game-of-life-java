@@ -3,6 +3,7 @@ package models;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class Cell {
     private boolean alive;
@@ -60,4 +61,29 @@ public class Cell {
     public List<String> getNeighbors() {
         return neighbors;
     }
+
+    public Integer countLivingNeighbors(Map<String,Cell> board) {
+        Integer count = 0;
+        for( String neighbor : neighbors){
+            if(board.get(neighbor).isAlive()){
+                count += 1;
+            }
+        }
+        return count;
+    }
+
+//    public boolean determineNextState(Map<String,Cell> board) {
+//        boolean nextState = isAlive();
+//        Integer livingNeighbors = countLivingNeighbors(board);
+//        if(isAlive()) {
+//            if(livingNeighbors <2 || livingNeighbors >3) {
+//                nextState = false;
+//            }
+//        } else {
+//            if(livingNeighbors == 3){
+//                nextState = true;
+//            }
+//        }
+//        return nextState;
+//    }
 }
