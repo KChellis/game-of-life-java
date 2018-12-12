@@ -51,4 +51,8 @@ public class Board {
             System.out.println(cellsOnBoard.get(key).isAlive());
         }
     }
+
+    public HashMap<String, Cell> getCellsOnBoard() {
+        return cellsOnBoard;
+    }
 }
