@@ -17,7 +17,7 @@ public class Board {
             System.out.println("Welcome to the Game of Life!");
             System.out.println("Please enter the size for your board (1-10): ");
             boardSize = Integer.parseInt(bufferedReader.readLine());
-            System.out.println("Your board size is " + xaxis + " columns by " + xaxis + " rows.");
+            System.out.println("Your board size is " + boardSize + " columns by " + boardSize + " rows.");
         } catch(IOException e) {
             e.printStackTrace();
         }
