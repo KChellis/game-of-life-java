@@ -21,6 +21,11 @@ public class App {
         gameBoard = new Board(boardSize);
         gameBoard.printBoard();
         gameBoard.printStateOfBoard();
+        System.out.println("----------------------------------------------------");
+        gameBoard.printStateOfBoardNeighbors();
+        gameBoard.getNextGeneration();
+        System.out.println("----------------------------------------------------");
+        gameBoard.printStateOfBoard();
     }
 
 
