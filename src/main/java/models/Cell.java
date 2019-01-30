@@ -65,7 +65,6 @@ public class Cell {
 
     public Integer countLivingNeighbors(LinkedHashMap<String, Cell> board) {
         Integer count = 0;
-//        System.out.println(neighbors);
         for( String neighbor : neighbors){
             if(board.get(neighbor).isAlive()){
                 count += 1;

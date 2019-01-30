@@ -44,7 +44,6 @@ public class Board {
                 cellsOnBoard.put(cellKey, newCell);
             }
         }
-//        this.printCellsOnBoardValues();
     }
 
     private void printCellsOnBoardValues() {
@@ -104,7 +103,6 @@ public class Board {
             boolean newState = cell.determineNextState(cellsOnBoard);
             newGeneration.put(key, newState);
         }
-//        System.out.println(newGeneration);
         for (String key : allKeys) {
             boolean currentStateOfCell = cellsOnBoard.get(key).isAlive();
             Boolean newStateOfCell = (Boolean) newGeneration.get(key);
