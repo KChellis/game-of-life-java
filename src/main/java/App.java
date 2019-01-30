@@ -19,7 +19,7 @@ public class App {
             e.printStackTrace();
         }
         gameBoard = new Board(boardSize);
-        gameBoard.printBoard();
+//        gameBoard.printBoard();
         gameBoard.printStateOfBoard();
         System.out.println("----------------------------------------------------");
         gameBoard.printStateOfBoardNeighbors();

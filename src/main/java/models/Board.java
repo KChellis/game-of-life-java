@@ -1,7 +1,7 @@
 package models;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 
@@ -9,7 +9,7 @@ import models.Cell;
 
 public class Board {
     private int boardSize;
-    private HashMap<String, Cell> cellsOnBoard = new HashMap<>();
+    private LinkedHashMap<String, Cell> cellsOnBoard = new LinkedHashMap<>();
 
     public Board(int size){
         this.boardSize = size;
@@ -92,19 +92,19 @@ public class Board {
         }
     }
 
-    public HashMap<String, Cell> getCellsOnBoard() {
+    public LinkedHashMap<String, Cell> getCellsOnBoard() {
         return cellsOnBoard;
     }
 
     public void getNextGeneration(){
-        Map newGeneration = new HashMap<String, Boolean>();
+        Map newGeneration = new LinkedHashMap<String, Boolean>();
         Set<String> allKeys = cellsOnBoard.keySet();
         for( String key : allKeys) {
             Cell cell = cellsOnBoard.get(key);
             boolean newState = cell.determineNextState(cellsOnBoard);
             newGeneration.put(key, newState);
         }
-
+//        System.out.println(newGeneration);
         for (String key : allKeys) {
             boolean currentStateOfCell = cellsOnBoard.get(key).isAlive();
             Boolean newStateOfCell = (Boolean) newGeneration.get(key);

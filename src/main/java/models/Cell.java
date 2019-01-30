@@ -2,7 +2,7 @@ package models;
 
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -63,8 +63,9 @@ public class Cell {
         return neighbors;
     }
 
-    public Integer countLivingNeighbors(HashMap<String, Cell> board) {
+    public Integer countLivingNeighbors(LinkedHashMap<String, Cell> board) {
         Integer count = 0;
+//        System.out.println(neighbors);
         for( String neighbor : neighbors){
             if(board.get(neighbor).isAlive()){
                 count += 1;
@@ -73,7 +74,7 @@ public class Cell {
         return count;
     }
 
-    public boolean determineNextState(HashMap<String,Cell> board) {
+    public boolean determineNextState(LinkedHashMap<String,Cell> board) {
         boolean nextState = isAlive();
         Integer livingNeighbors = countLivingNeighbors(board);
         if(isAlive()) {
