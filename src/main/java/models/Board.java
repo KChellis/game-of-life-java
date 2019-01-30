@@ -1,6 +1,8 @@
 package models;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 
 import models.Cell;
@@ -42,7 +44,7 @@ public class Board {
                 cellsOnBoard.put(cellKey, newCell);
             }
         }
-        this.printCellsOnBoardValues();
+//        this.printCellsOnBoardValues();
     }
 
     private void printCellsOnBoardValues() {
@@ -71,7 +73,44 @@ public class Board {
         }
     }
 
+    public void printStateOfBoardNeighbors() {
+        Set<String> allKeys = cellsOnBoard.keySet();
+        int rowCounter = 0;
+        String printRow = "";
+        for (String key : allKeys) {
+            if (cellsOnBoard.get(key).isAlive()) {
+                printRow = printRow + cellsOnBoard.get(key).countLivingNeighbors(cellsOnBoard);
+            } else {
+                printRow = printRow + cellsOnBoard.get(key).countLivingNeighbors(cellsOnBoard);
+            }
+            rowCounter++;
+            if (rowCounter == boardSize) {
+                System.out.println(printRow);
+                rowCounter = 0;
+                printRow = "";
+            }
+        }
+    }
+
     public HashMap<String, Cell> getCellsOnBoard() {
         return cellsOnBoard;
+    }
+
+    public void getNextGeneration(){
+        Map newGeneration = new HashMap<String, Boolean>();
+        Set<String> allKeys = cellsOnBoard.keySet();
+        for( String key : allKeys) {
+            Cell cell = cellsOnBoard.get(key);
+            boolean newState = cell.determineNextState(cellsOnBoard);
+            newGeneration.put(key, newState);
+        }
+
+        for (String key : allKeys) {
+            boolean currentStateOfCell = cellsOnBoard.get(key).isAlive();
+            Boolean newStateOfCell = (Boolean) newGeneration.get(key);
+            if (newStateOfCell != currentStateOfCell) {
+                cellsOnBoard.get(key).toggleAlive();
+            }
+        }
     }
 }
