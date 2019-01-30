@@ -25,23 +25,23 @@ public class Cell {
             if(column > 0){
                 neighbors.add((row-1) + "-" + (column-1));
             }
-            if(column < gridSize){
+            if(column < gridSize-1){
                 neighbors.add((row-1) + "-" + (column+1));
             }
         }
-        if(row < gridSize){
+        if(row < gridSize-1){
             neighbors.add((row+1) + "-" + column);
             if(column > 0){
                 neighbors.add((row+1) + "-" + (column-1));
             }
-            if(column < gridSize){
+            if(column < gridSize-1){
                 neighbors.add((row+1) + "-" + (column+1));
             }
         }
         if(column > 0){
             neighbors.add(row + "-" + (column-1));
         }
-        if(column < gridSize){
+        if(column < gridSize-1){
             neighbors.add(row + "-" + (column+1));
         }
         return neighbors;
@@ -73,18 +73,18 @@ public class Cell {
         return count;
     }
 
-//    public boolean determineNextState(Map<String,Cell> board) {
-//        boolean nextState = isAlive();
-//        Integer livingNeighbors = countLivingNeighbors(board);
-//        if(isAlive()) {
-//            if(livingNeighbors <2 || livingNeighbors >3) {
-//                nextState = false;
-//            }
-//        } else {
-//            if(livingNeighbors == 3){
-//                nextState = true;
-//            }
-//        }
-//        return nextState;
-//    }
+    public boolean determineNextState(HashMap<String,Cell> board) {
+        boolean nextState = isAlive();
+        Integer livingNeighbors = countLivingNeighbors(board);
+        if(isAlive()) {
+            if(livingNeighbors <2 || livingNeighbors >3) {
+                nextState = false;
+            }
+        } else {
+            if(livingNeighbors == 3){
+                nextState = true;
+            }
+        }
+        return nextState;
+    }
 }
